@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Overview - dOS0 Wiki</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">dOS0 Wiki</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Getting Started</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="overview.html" class="active">System Overview</a></li>
+                <li><a href="filesystem.html">File System</a></li>
+            </ul>
+            
+            <h3>Applications</h3>
+            <ul>
+                <li><a href="file-explorer.html">File Explorer</a></li>
+                <li><a href="notepad.html">Notepad</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="browser.html">Browser</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+            
+            <h3>dOS0 Web</h3>
+            <ul>
+                <li><a href="dos-web.html">About .dos Sites</a></li>
+                <li><a href="creating-sites.html">Creating Sites</a></li>
+            </ul>
+            
+            <h3>Advanced</h3>
+            <ul>
+                <li><a href="github-sync.html">GitHub Sync</a></li>
+                <li><a href="api.html">API Reference</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content">
+            <h1>System Overview</h1>
+            <p>dOS0 is built as a single-page web application that simulates a complete desktop operating system environment. This page provides technical details about the system architecture and core components.</p>
+            
+            <h2>Architecture</h2>
+            <p>The system is structured in layers:</p>
+            
+            <h3>Presentation Layer</h3>
+            <p>The desktop environment renders windows, taskbar, and system tray using HTML5 and CSS3. Each window is a draggable, resizable DOM element with z-index management for proper stacking.</p>
+            
+            <h3>Application Layer</h3>
+            <p>Applications are JavaScript modules that register with the system and receive lifecycle callbacks. Each app has access to:</p>
+            <ul>
+                <li>Window management APIs</li>
+                <li>File system operations</li>
+                <li>Inter-process communication</li>
+                <li>System events and notifications</li>
+            </ul>
+            
+            <h3>Storage Layer</h3>
+            <p>The file system is implemented as a virtual hierarchical structure stored in browser LocalStorage for immediate access, with GitHub serving as the persistent backend. Changes are synchronized bidirectionally.</p>
+            
+            <h2>Window Management</h2>
+            <p>The window manager handles:</p>
+            <ul>
+                <li><strong>Creation</strong> - Apps request windows with specified dimensions and properties</li>
+                <li><strong>Focus</strong> - Click events bring windows to front and update taskbar state</li>
+                <li><strong>Dragging</strong> - Title bar drag operations reposition windows within viewport bounds</li>
+                <li><strong>Resizing</strong> - Edge and corner handles allow window dimension changes</li>
+                <li><strong>State</strong> - Windows can be minimized, maximized, or restored</li>
+            </ul>
+            
+            <h2>Process Model</h2>
+            <p>Unlike traditional operating systems, dOS0 runs all applications in a single JavaScript execution context. Applications are isolated through:</p>
+            <ul>
+                <li>Separate DOM containers for each window</li>
+                <li>Scoped event handlers</li>
+                <li>Namespaced storage keys</li>
+                <li>Controlled API access</li>
+            </ul>
+            
+            <h2>Data Persistence</h2>
+            <p>Three storage mechanisms are used:</p>
+            
+            <h3>LocalStorage</h3>
+            <p>Immediate read/write access for file system cache, user preferences, and application state. Limited to approximately 5-10MB depending on browser.</p>
+            
+            <h3>GitHub Repository</h3>
+            <p>Cloud storage for file system contents. Files are stored as blobs in a repository structure that mirrors the virtual file system hierarchy.</p>
+            
+            <h3>SessionStorage</h3>
+            <p>Temporary data that persists only for the current browser session, used for window state and runtime configuration.</p>
+            
+            <h2>Security Model</h2>
+            <p>dOS0 operates within browser security constraints:</p>
+            <ul>
+                <li>Same-origin policy applies to all operations</li>
+                <li>GitHub authentication uses OAuth tokens</li>
+                <li>No server-side code execution</li>
+                <li>.dos websites are sandboxed in iframes with restricted permissions</li>
+            </ul>
+            
+            <footer>
+                <strong>dOS0 Wiki</strong> • Part of dOS0 Web
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

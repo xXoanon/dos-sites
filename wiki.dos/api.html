@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Reference - dOS0 Wiki</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">dOS0 Wiki</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Getting Started</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="overview.html">System Overview</a></li>
+                <li><a href="filesystem.html">File System</a></li>
+            </ul>
+            
+            <h3>Applications</h3>
+            <ul>
+                <li><a href="file-explorer.html">File Explorer</a></li>
+                <li><a href="notepad.html">Notepad</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="browser.html">Browser</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+            
+            <h3>dOS0 Web</h3>
+            <ul>
+                <li><a href="dos-web.html">About .dos Sites</a></li>
+                <li><a href="creating-sites.html">Creating Sites</a></li>
+            </ul>
+            
+            <h3>Advanced</h3>
+            <ul>
+                <li><a href="github-sync.html">GitHub Sync</a></li>
+                <li><a href="api.html" class="active">API Reference</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content">
+            <h1>API Reference</h1>
+            <p>This reference documents the internal APIs available for dOS0 application development and system integration.</p>
+            
+            <h2>File System API</h2>
+            
+            <h3>Reading Files</h3>
+            <p>Access file contents from the virtual file system:</p>
+            <ul>
+                <li><code>FileSystem.readFile(path)</code> - Returns file content as string</li>
+                <li><code>FileSystem.exists(path)</code> - Check if file exists</li>
+                <li><code>FileSystem.getMetadata(path)</code> - Get file size, modified date, etc.</li>
+            </ul>
+            
+            <h3>Writing Files</h3>
+            <p>Create or modify files:</p>
+            <ul>
+                <li><code>FileSystem.writeFile(path, content)</code> - Write content to file</li>
+                <li><code>FileSystem.appendFile(path, content)</code> - Append to existing file</li>
+                <li><code>FileSystem.deleteFile(path)</code> - Remove file</li>
+            </ul>
+            
+            <h3>Directory Operations</h3>
+            <p>Manage folders and navigate the file tree:</p>
+            <ul>
+                <li><code>FileSystem.createDirectory(path)</code> - Create new folder</li>
+                <li><code>FileSystem.listDirectory(path)</code> - Get folder contents</li>
+                <li><code>FileSystem.deleteDirectory(path)</code> - Remove folder and contents</li>
+            </ul>
+            
+            <h2>Window Management API</h2>
+            
+            <h3>Creating Windows</h3>
+            <p>Applications can create windows programmatically:</p>
+            <ul>
+                <li><code>WindowManager.create(options)</code> - Create new window</li>
+                <li><code>WindowManager.close(windowId)</code> - Close specific window</li>
+                <li><code>WindowManager.focus(windowId)</code> - Bring window to front</li>
+            </ul>
+            
+            <h3>Window Properties</h3>
+            <p>Configure window appearance and behavior:</p>
+            <ul>
+                <li><code>title</code> - Window title bar text</li>
+                <li><code>width</code> - Initial width in pixels</li>
+                <li><code>height</code> - Initial height in pixels</li>
+                <li><code>x</code> - Horizontal position</li>
+                <li><code>y</code> - Vertical position</li>
+                <li><code>resizable</code> - Allow window resizing</li>
+                <li><code>minimizable</code> - Show minimize button</li>
+                <li><code>maximizable</code> - Show maximize button</li>
+            </ul>
+            
+            <h2>Application API</h2>
+            
+            <h3>Registration</h3>
+            <p>Register new applications with the system:</p>
+            <ul>
+                <li><code>AppRegistry.register(appConfig)</code> - Register application</li>
+                <li><code>AppRegistry.launch(appId)</code> - Launch application</li>
+                <li><code>AppRegistry.getAll()</code> - List all registered apps</li>
+            </ul>
+            
+            <h3>Application Configuration</h3>
+            <p>Required properties for app registration:</p>
+            <ul>
+                <li><code>id</code> - Unique application identifier</li>
+                <li><code>name</code> - Display name</li>
+                <li><code>icon</code> - Icon path or data URL</li>
+                <li><code>onLaunch</code> - Function called when app starts</li>
+                <li><code>onClose</code> - Cleanup function on app exit</li>
+            </ul>
+            
+            <h2>Storage API</h2>
+            
+            <h3>Local Storage</h3>
+            <p>Persist application data locally:</p>
+            <ul>
+                <li><code>Storage.set(key, value)</code> - Store data</li>
+                <li><code>Storage.get(key)</code> - Retrieve data</li>
+                <li><code>Storage.remove(key)</code> - Delete data</li>
+                <li><code>Storage.clear()</code> - Remove all data</li>
+            </ul>
+            
+            <h3>GitHub Sync</h3>
+            <p>Interact with GitHub storage backend:</p>
+            <ul>
+                <li><code>GitHubSync.upload(path, content)</code> - Upload file to GitHub</li>
+                <li><code>GitHubSync.download(path)</code> - Download file from GitHub</li>
+                <li><code>GitHubSync.getStatus()</code> - Check sync status</li>
+            </ul>
+            
+            <h2>Event System</h2>
+            
+            <h3>System Events</h3>
+            <p>Listen for system-wide events:</p>
+            <ul>
+                <li><code>system:ready</code> - System initialization complete</li>
+                <li><code>file:created</code> - New file created</li>
+                <li><code>file:modified</code> - File content changed</li>
+                <li><code>file:deleted</code> - File removed</li>
+                <li><code>window:focus</code> - Window gained focus</li>
+                <li><code>window:blur</code> - Window lost focus</li>
+            </ul>
+            
+            <h3>Event Handling</h3>
+            <p>Subscribe to and emit events:</p>
+            <ul>
+                <li><code>Events.on(eventName, callback)</code> - Listen for event</li>
+                <li><code>Events.off(eventName, callback)</code> - Stop listening</li>
+                <li><code>Events.emit(eventName, data)</code> - Trigger event</li>
+            </ul>
+            
+            <h2>UI Components</h2>
+            
+            <h3>Dialogs</h3>
+            <p>Show system dialogs for user interaction:</p>
+            <ul>
+                <li><code>Dialog.alert(message)</code> - Show alert dialog</li>
+                <li><code>Dialog.confirm(message)</code> - Show confirmation dialog</li>
+                <li><code>Dialog.prompt(message, defaultValue)</code> - Show input dialog</li>
+            </ul>
+            
+            <h3>Notifications</h3>
+            <p>Display system notifications:</p>
+            <ul>
+                <li><code>Notification.show(title, message)</code> - Show notification</li>
+                <li><code>Notification.error(message)</code> - Show error notification</li>
+                <li><code>Notification.success(message)</code> - Show success notification</li>
+            </ul>
+            
+            <h2>Utility Functions</h2>
+            
+            <h3>Path Utilities</h3>
+            <p>Work with file paths:</p>
+            <ul>
+                <li><code>Path.join(...segments)</code> - Combine path segments</li>
+                <li><code>Path.dirname(path)</code> - Get directory name</li>
+                <li><code>Path.basename(path)</code> - Get file name</li>
+                <li><code>Path.extname(path)</code> - Get file extension</li>
+            </ul>
+            
+            <h3>String Utilities</h3>
+            <p>Common string operations:</p>
+            <ul>
+                <li><code>Utils.sanitizeFilename(name)</code> - Remove invalid characters</li>
+                <li><code>Utils.formatBytes(bytes)</code> - Human-readable file size</li>
+                <li><code>Utils.formatDate(date)</code> - Format date for display</li>
+            </ul>
+            
+            <div class="info-box">
+                <strong>Note:</strong> This API is for internal system development. Applications running within dOS0 have access to these APIs, but .dos websites do not.
+            </div>
+            
+            <h2>Example: Creating an Application</h2>
+            <p>Basic example of registering a new application:</p>
+            
+            <p>The application would define its behavior, create windows, and interact with the file system through these APIs.</p>
+            
+            <h2>Security Considerations</h2>
+            <ul>
+                <li>All file operations are sandboxed to the virtual file system</li>
+                <li>No direct access to browser APIs or external resources</li>
+                <li>GitHub operations require valid authentication</li>
+                <li>Event listeners are automatically cleaned up on app close</li>
+            </ul>
+            
+            <footer>
+                <strong>dOS0 Wiki</strong> • Part of dOS0 Web
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

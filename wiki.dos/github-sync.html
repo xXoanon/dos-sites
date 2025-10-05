@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Sync - dOS0 Wiki</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">dOS0 Wiki</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Getting Started</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="overview.html">System Overview</a></li>
+                <li><a href="filesystem.html">File System</a></li>
+            </ul>
+            
+            <h3>Applications</h3>
+            <ul>
+                <li><a href="file-explorer.html">File Explorer</a></li>
+                <li><a href="notepad.html">Notepad</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="browser.html">Browser</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+            
+            <h3>dOS0 Web</h3>
+            <ul>
+                <li><a href="dos-web.html">About .dos Sites</a></li>
+                <li><a href="creating-sites.html">Creating Sites</a></li>
+            </ul>
+            
+            <h3>Advanced</h3>
+            <ul>
+                <li><a href="github-sync.html" class="active">GitHub Sync</a></li>
+                <li><a href="api.html">API Reference</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content">
+            <h1>GitHub Sync</h1>
+            <p>dOS0 uses GitHub as a cloud storage backend, enabling file persistence across sessions and devices. This guide explains how synchronization works and how to configure it.</p>
+            
+            <h2>Setup</h2>
+            
+            <h3>Creating a GitHub Token</h3>
+            <ol>
+                <li>Go to GitHub Settings → Developer settings → Personal access tokens</li>
+                <li>Click "Generate new token (classic)"</li>
+                <li>Give it a descriptive name like "dOS0 Storage"</li>
+                <li>Select the <code>repo</code> scope (full control of private repositories)</li>
+                <li>Click "Generate token" and copy the token immediately</li>
+            </ol>
+            
+            <div class="info-box">
+                <strong>Security:</strong> Store your token securely. Anyone with this token can access your repositories. Never share it or commit it to version control.
+            </div>
+            
+            <h3>Configuring dOS0</h3>
+            <ol>
+                <li>Open Settings application</li>
+                <li>Navigate to GitHub Sync section</li>
+                <li>Enter your GitHub username</li>
+                <li>Paste your personal access token</li>
+                <li>Specify repository name (will be created if it doesn't exist)</li>
+                <li>Click "Save" to enable synchronization</li>
+            </ol>
+            
+            <h2>How Sync Works</h2>
+            
+            <h3>Initial Sync</h3>
+            <p>When you first configure GitHub sync:</p>
+            <ol>
+                <li>System checks if the specified repository exists</li>
+                <li>If not, creates a new private repository</li>
+                <li>Downloads any existing files from the repository</li>
+                <li>Merges with local files (local takes precedence)</li>
+                <li>Uploads the merged file system to GitHub</li>
+            </ol>
+            
+            <h3>Ongoing Sync</h3>
+            <p>After initial setup, synchronization happens automatically:</p>
+            <ul>
+                <li><strong>On file create</strong> - New file is uploaded to GitHub</li>
+                <li><strong>On file modify</strong> - Updated content is pushed to GitHub</li>
+                <li><strong>On file delete</strong> - File is removed from GitHub repository</li>
+                <li><strong>On folder operations</strong> - Structure changes are reflected in GitHub</li>
+            </ul>
+            
+            <h3>Sync Strategy</h3>
+            <p>dOS0 uses a "local-first" synchronization strategy:</p>
+            <ul>
+                <li>All operations complete locally first</li>
+                <li>GitHub sync happens asynchronously in background</li>
+                <li>Failed syncs are retried automatically</li>
+                <li>Local state is always authoritative</li>
+            </ul>
+            
+            <h2>Repository Structure</h2>
+            <p>Your GitHub repository mirrors the dOS0 file system structure:</p>
+            <ul>
+                <li>Root directory maps to repository root</li>
+                <li>Folders become directories</li>
+                <li>Files are stored as blobs with original names</li>
+                <li>File metadata is preserved in commit messages</li>
+            </ul>
+            
+            <h2>Conflict Resolution</h2>
+            <p>If you modify files directly in GitHub:</p>
+            <ul>
+                <li>Changes won't automatically sync to dOS0</li>
+                <li>Next local modification will overwrite GitHub version</li>
+                <li>Manual merge is required for complex conflicts</li>
+            </ul>
+            
+            <div class="info-box">
+                <strong>Best Practice:</strong> Make all file modifications through dOS0 to avoid sync conflicts. Use GitHub only for backup and version history review.
+            </div>
+            
+            <h2>Troubleshooting</h2>
+            
+            <h3>Sync Not Working</h3>
+            <p>If files aren't syncing to GitHub:</p>
+            <ul>
+                <li>Verify token has <code>repo</code> scope</li>
+                <li>Check username and repository name are correct</li>
+                <li>Ensure token hasn't expired</li>
+                <li>Look for error messages in browser console</li>
+            </ul>
+            
+            <h3>Files Not Loading</h3>
+            <p>If files don't appear after configuring sync:</p>
+            <ul>
+                <li>Clear browser cache and reload</li>
+                <li>Check repository exists and contains files</li>
+                <li>Verify token has read permissions</li>
+                <li>Try re-entering credentials in Settings</li>
+            </ul>
+            
+            <h3>Rate Limiting</h3>
+            <p>GitHub API has rate limits:</p>
+            <ul>
+                <li>5,000 requests per hour for authenticated users</li>
+                <li>Excessive file operations may hit this limit</li>
+                <li>System will queue operations and retry after cooldown</li>
+            </ul>
+            
+            <h2>Security Considerations</h2>
+            <ul>
+                <li>Tokens are stored in browser LocalStorage (not encrypted)</li>
+                <li>Anyone with access to your browser can read the token</li>
+                <li>Use a dedicated token with minimal permissions</li>
+                <li>Revoke tokens immediately if compromised</li>
+                <li>Consider using a separate GitHub account for dOS0</li>
+            </ul>
+            
+            <h2>Limitations</h2>
+            <ul>
+                <li>No real-time multi-device sync</li>
+                <li>No automatic conflict resolution</li>
+                <li>Repository size limited to 1GB (GitHub soft limit)</li>
+                <li>Individual files should not exceed 100MB</li>
+                <li>Sync is one-way (dOS0 to GitHub)</li>
+            </ul>
+            
+            <footer>
+                <strong>dOS0 Wiki</strong> • Part of dOS0 Web
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

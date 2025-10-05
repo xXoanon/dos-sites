@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File System - dOS0 Wiki</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">dOS0 Wiki</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Getting Started</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="overview.html">System Overview</a></li>
+                <li><a href="filesystem.html" class="active">File System</a></li>
+            </ul>
+            
+            <h3>Applications</h3>
+            <ul>
+                <li><a href="file-explorer.html">File Explorer</a></li>
+                <li><a href="notepad.html">Notepad</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="browser.html">Browser</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+            
+            <h3>dOS0 Web</h3>
+            <ul>
+                <li><a href="dos-web.html">About .dos Sites</a></li>
+                <li><a href="creating-sites.html">Creating Sites</a></li>
+            </ul>
+            
+            <h3>Advanced</h3>
+            <ul>
+                <li><a href="github-sync.html">GitHub Sync</a></li>
+                <li><a href="api.html">API Reference</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content">
+            <h1>File System</h1>
+            <p>The dOS0 file system provides a hierarchical structure for organizing files and folders, with automatic cloud synchronization through GitHub.</p>
+            
+            <h2>Structure</h2>
+            <p>The file system uses a tree structure with the following characteristics:</p>
+            <ul>
+                <li>Root directory at <code>/</code></li>
+                <li>Forward slash <code>/</code> as path separator</li>
+                <li>Case-sensitive file and folder names</li>
+                <li>No file size limits (constrained only by GitHub repository limits)</li>
+            </ul>
+            
+            <h2>File Operations</h2>
+            
+            <h3>Creating Files</h3>
+            <p>Files can be created through:</p>
+            <ul>
+                <li>File Explorer's "New File" button</li>
+                <li>Notepad's "Save As" function</li>
+                <li>Application-specific save operations</li>
+            </ul>
+            
+            <h3>Reading Files</h3>
+            <p>Applications access file contents through the file system API. Files are loaded from LocalStorage cache first, falling back to GitHub if not found locally.</p>
+            
+            <h3>Updating Files</h3>
+            <p>File modifications are written to LocalStorage immediately and queued for GitHub synchronization. The sync occurs automatically in the background.</p>
+            
+            <h3>Deleting Files</h3>
+            <p>Deleted files are removed from both LocalStorage and GitHub. This operation is permanent and cannot be undone through the UI.</p>
+            
+            <h2>Folder Operations</h2>
+            
+            <h3>Creating Folders</h3>
+            <p>Use File Explorer's "New Folder" button to create directories. Folders can be nested to any depth.</p>
+            
+            <h3>Navigating Folders</h3>
+            <p>Double-click folders in File Explorer to navigate into them. Use the breadcrumb navigation or "Up" button to move to parent directories.</p>
+            
+            <h3>Deleting Folders</h3>
+            <p>Deleting a folder removes it and all contained files and subfolders. This is a recursive operation.</p>
+            
+            <h2>Synchronization</h2>
+            <p>The file system maintains consistency between three storage locations:</p>
+            
+            <h3>LocalStorage Cache</h3>
+            <p>Provides immediate access to files without network requests. Updated synchronously with all file operations.</p>
+            
+            <h3>GitHub Repository</h3>
+            <p>Persistent cloud storage that survives browser cache clears and enables cross-device access. Updates occur asynchronously.</p>
+            
+            <h3>Sync Process</h3>
+            <p>When you modify a file:</p>
+            <ol>
+                <li>Change is written to LocalStorage immediately</li>
+                <li>Sync request is queued</li>
+                <li>GitHub API call uploads the change</li>
+                <li>Confirmation updates local metadata</li>
+            </ol>
+            
+            <div class="info-box">
+                <strong>Important:</strong> GitHub synchronization requires authentication. Configure your GitHub token in Settings before creating files.
+            </div>
+            
+            <h2>File Metadata</h2>
+            <p>Each file stores the following metadata:</p>
+            <ul>
+                <li><strong>Name</strong> - File name including extension</li>
+                <li><strong>Path</strong> - Full path from root directory</li>
+                <li><strong>Size</strong> - Content size in bytes</li>
+                <li><strong>Modified</strong> - Last modification timestamp</li>
+                <li><strong>Type</strong> - MIME type or file extension</li>
+            </ul>
+            
+            <h2>Limitations</h2>
+            <ul>
+                <li>LocalStorage typically limited to 5-10MB total</li>
+                <li>GitHub repositories have a soft limit of 1GB</li>
+                <li>Individual files should not exceed 100MB</li>
+                <li>Special characters in filenames may cause issues</li>
+            </ul>
+            
+            <footer>
+                <strong>dOS0 Wiki</strong> • Part of dOS0 Web
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

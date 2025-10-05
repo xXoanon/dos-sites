@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser - dOS0 Wiki</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">dOS0 Wiki</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Getting Started</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="overview.html">System Overview</a></li>
+                <li><a href="filesystem.html">File System</a></li>
+            </ul>
+            
+            <h3>Applications</h3>
+            <ul>
+                <li><a href="file-explorer.html">File Explorer</a></li>
+                <li><a href="notepad.html">Notepad</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="browser.html" class="active">Browser</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+            
+            <h3>dOS0 Web</h3>
+            <ul>
+                <li><a href="dos-web.html">About .dos Sites</a></li>
+                <li><a href="creating-sites.html">Creating Sites</a></li>
+            </ul>
+            
+            <h3>Advanced</h3>
+            <ul>
+                <li><a href="github-sync.html">GitHub Sync</a></li>
+                <li><a href="api.html">API Reference</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content">
+            <h1>Browser</h1>
+            <p>The dOS0 Browser provides access to the dOS0 Web, an isolated internet environment containing .dos websites. It cannot access external internet resources.</p>
+            
+            <h2>Features</h2>
+            
+            <h3>Address Bar</h3>
+            <p>Enter .dos URLs to navigate between sites. The address bar displays the current site and updates as you navigate. Supported formats:</p>
+            <ul>
+                <li><code>wiki.dos</code> - Direct site name</li>
+                <li><code>wiki.dos/page.html</code> - Specific page within a site</li>
+            </ul>
+            
+            <h3>Navigation Controls</h3>
+            <ul>
+                <li><strong>Back</strong> - Return to previous page in history</li>
+                <li><strong>Forward</strong> - Move forward in history after going back</li>
+                <li><strong>Refresh</strong> - Reload current page</li>
+                <li><strong>Home</strong> - Return to browser start page</li>
+            </ul>
+            
+            <h3>Start Page</h3>
+            <p>The default page displays quick links to available .dos sites and provides an overview of the dOS0 Web ecosystem.</p>
+            
+            <h2>Technical Implementation</h2>
+            
+            <h3>Webview vs Iframe</h3>
+            <p>The browser uses Electron's webview element when available, falling back to iframe for web-based deployments. Webviews provide better isolation and security.</p>
+            
+            <h3>Content Loading</h3>
+            <p>When you navigate to a .dos site:</p>
+            <ol>
+                <li>Browser parses the URL to extract site name</li>
+                <li>Requests site content from GitHub via API</li>
+                <li>Loads HTML into webview/iframe</li>
+                <li>Updates address bar and navigation state</li>
+            </ol>
+            
+            <h3>External Access Blocking</h3>
+            <p>The browser actively prevents access to external internet resources through:</p>
+            <ul>
+                <li>URL validation that only allows .dos domains</li>
+                <li>Webview configuration that blocks external navigation</li>
+                <li>Content Security Policy restrictions</li>
+            </ul>
+            
+            <div class="info-box">
+                <strong>Security Note:</strong> .dos sites run in a sandboxed environment with limited access to system APIs. They cannot access your file system or make external network requests.
+            </div>
+            
+            <h2>Available Sites</h2>
+            <p>Current .dos websites in the ecosystem:</p>
+            <ul>
+                <li><strong>wiki.dos</strong> - System documentation and guides</li>
+            </ul>
+            
+            <p>Additional sites are in development. See the <a href="creating-sites.html" style="color: #ff8c00;">Creating Sites</a> guide to learn how to build your own .dos website.</p>
+            
+            <h2>Keyboard Shortcuts</h2>
+            <ul>
+                <li><strong>Alt + Left</strong> - Navigate back</li>
+                <li><strong>Alt + Right</strong> - Navigate forward</li>
+                <li><strong>F5</strong> - Refresh page</li>
+                <li><strong>Ctrl + L</strong> - Focus address bar</li>
+            </ul>
+            
+            <h2>Limitations</h2>
+            <ul>
+                <li>No external internet access</li>
+                <li>No browser extensions or plugins</li>
+                <li>Limited JavaScript APIs available to .dos sites</li>
+                <li>No cookies or persistent storage for sites</li>
+                <li>No multimedia streaming capabilities</li>
+            </ul>
+            
+            <footer>
+                <strong>dOS0 Wiki</strong> • Part of dOS0 Web
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

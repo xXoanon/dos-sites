@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Explorer - dOS0 Wiki</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">dOS0 Wiki</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Getting Started</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="overview.html">System Overview</a></li>
+                <li><a href="filesystem.html">File System</a></li>
+            </ul>
+            
+            <h3>Applications</h3>
+            <ul>
+                <li><a href="file-explorer.html" class="active">File Explorer</a></li>
+                <li><a href="notepad.html">Notepad</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="browser.html">Browser</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+            
+            <h3>dOS0 Web</h3>
+            <ul>
+                <li><a href="dos-web.html">About .dos Sites</a></li>
+                <li><a href="creating-sites.html">Creating Sites</a></li>
+            </ul>
+            
+            <h3>Advanced</h3>
+            <ul>
+                <li><a href="github-sync.html">GitHub Sync</a></li>
+                <li><a href="api.html">API Reference</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content">
+            <h1>File Explorer</h1>
+            <p>The File Explorer is your primary tool for navigating and managing the dOS0 file system. It provides a visual interface for browsing folders, creating files, and organizing your data.</p>
+            
+            <h2>Interface Overview</h2>
+            
+            <h3>Navigation Bar</h3>
+            <p>The top navigation bar displays your current location in the file system:</p>
+            <ul>
+                <li><strong>Breadcrumb Path</strong> - Shows the full path from root to current folder</li>
+                <li><strong>Up Button</strong> - Navigate to parent directory</li>
+                <li><strong>Home Button</strong> - Return to root directory</li>
+            </ul>
+            
+            <h3>Toolbar</h3>
+            <p>Quick access buttons for common operations:</p>
+            <ul>
+                <li><strong>New Folder</strong> - Create a new directory in current location</li>
+                <li><strong>New File</strong> - Create a new empty file</li>
+                <li><strong>Upload</strong> - Import files from your computer</li>
+                <li><strong>Refresh</strong> - Reload current directory contents</li>
+            </ul>
+            
+            <h3>File List</h3>
+            <p>The main area displays all files and folders in the current directory with:</p>
+            <ul>
+                <li>File/folder icons indicating type</li>
+                <li>Name, size, and last modified date</li>
+                <li>Context menu on right-click</li>
+            </ul>
+            
+            <h2>File Operations</h2>
+            
+            <h3>Creating Files</h3>
+            <p>To create a new file:</p>
+            <ol>
+                <li>Click the "New File" button in the toolbar</li>
+                <li>Enter a filename with extension (e.g., <code>document.txt</code>)</li>
+                <li>Press Enter or click Create</li>
+                <li>File is created and synced to GitHub automatically</li>
+            </ol>
+            
+            <h3>Creating Folders</h3>
+            <p>To create a new folder:</p>
+            <ol>
+                <li>Click the "New Folder" button</li>
+                <li>Enter a folder name</li>
+                <li>Press Enter to create</li>
+            </ol>
+            
+            <h3>Opening Files</h3>
+            <p>Double-click any file to open it in the appropriate application:</p>
+            <ul>
+                <li>Text files (.txt, .md) open in Notepad</li>
+                <li>Images (.jpg, .png) open in Image Viewer</li>
+                <li>Other files may prompt for application selection</li>
+            </ul>
+            
+            <h3>Renaming</h3>
+            <p>To rename a file or folder:</p>
+            <ol>
+                <li>Right-click the item</li>
+                <li>Select "Rename" from context menu</li>
+                <li>Enter new name</li>
+                <li>Press Enter to confirm</li>
+            </ol>
+            
+            <h3>Deleting</h3>
+            <p>To delete files or folders:</p>
+            <ol>
+                <li>Right-click the item</li>
+                <li>Select "Delete" from context menu</li>
+                <li>Confirm deletion in the dialog</li>
+            </ol>
+            
+            <div class="info-box">
+                <strong>Warning:</strong> Deletion is permanent. Files are removed from both local storage and GitHub with no recovery option.
+            </div>
+            
+            <h2>Navigation</h2>
+            
+            <h3>Browsing Folders</h3>
+            <p>Navigate through your file system by:</p>
+            <ul>
+                <li>Double-clicking folders to enter them</li>
+                <li>Clicking breadcrumb path segments to jump to that level</li>
+                <li>Using the Up button to go to parent directory</li>
+                <li>Clicking Home to return to root</li>
+            </ul>
+            
+            <h3>Keyboard Shortcuts</h3>
+            <ul>
+                <li><strong>Ctrl + N</strong> - New file</li>
+                <li><strong>Ctrl + Shift + N</strong> - New folder</li>
+                <li><strong>Delete</strong> - Delete selected item</li>
+                <li><strong>F2</strong> - Rename selected item</li>
+                <li><strong>F5</strong> - Refresh view</li>
+                <li><strong>Backspace</strong> - Navigate up one level</li>
+            </ul>
+            
+            <h2>View Options</h2>
+            
+            <h3>Sort Order</h3>
+            <p>Click column headers to sort by:</p>
+            <ul>
+                <li>Name (alphabetical)</li>
+                <li>Size (smallest to largest)</li>
+                <li>Date Modified (newest to oldest)</li>
+                <li>Type (grouped by extension)</li>
+            </ul>
+            
+            <h3>Display Modes</h3>
+            <p>Switch between different view modes:</p>
+            <ul>
+                <li><strong>List View</strong> - Detailed information in rows</li>
+                <li><strong>Grid View</strong> - Large icons in a grid layout</li>
+                <li><strong>Compact View</strong> - Dense list with minimal spacing</li>
+            </ul>
+            
+            <h2>File Information</h2>
+            <p>Right-click any file and select "Properties" to view:</p>
+            <ul>
+                <li>Full file path</li>
+                <li>File size in bytes</li>
+                <li>Creation date</li>
+                <li>Last modified date</li>
+                <li>File type and extension</li>
+                <li>GitHub sync status</li>
+            </ul>
+            
+            <h2>Tips</h2>
+            <ul>
+                <li>Organize files into folders for better management</li>
+                <li>Use descriptive filenames with proper extensions</li>
+                <li>Regularly check GitHub sync status in Settings</li>
+                <li>Avoid special characters in filenames</li>
+                <li>Keep folder structures shallow for easier navigation</li>
+            </ul>
+            
+            <footer>
+                <strong>dOS0 Wiki</strong> • Part of dOS0 Web
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

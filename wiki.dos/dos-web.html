@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About .dos Sites - dOS0 Wiki</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">dOS0 Wiki</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Getting Started</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="overview.html">System Overview</a></li>
+                <li><a href="filesystem.html">File System</a></li>
+            </ul>
+            
+            <h3>Applications</h3>
+            <ul>
+                <li><a href="file-explorer.html">File Explorer</a></li>
+                <li><a href="notepad.html">Notepad</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="browser.html">Browser</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+            
+            <h3>dOS0 Web</h3>
+            <ul>
+                <li><a href="dos-web.html" class="active">About .dos Sites</a></li>
+                <li><a href="creating-sites.html">Creating Sites</a></li>
+            </ul>
+            
+            <h3>Advanced</h3>
+            <ul>
+                <li><a href="github-sync.html">GitHub Sync</a></li>
+                <li><a href="api.html">API Reference</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content">
+            <h1>About .dos Sites</h1>
+            <p>dOS0 Web is a self-contained internet ecosystem within dOS0. Instead of accessing the external web, users browse .dos websites that are part of the dOS0 environment.</p>
+            
+            <h2>Concept</h2>
+            <p>The .dos web creates an isolated browsing experience where:</p>
+            <ul>
+                <li>All content is curated and controlled</li>
+                <li>No external tracking or advertisements</li>
+                <li>Fast loading with no network latency</li>
+                <li>Consistent user experience across all sites</li>
+                <li>Integration with dOS0 system features</li>
+            </ul>
+            
+            <h2>How It Works</h2>
+            
+            <h3>Site Storage</h3>
+            <p>.dos websites are stored as static HTML files in a GitHub repository. When you navigate to a site, the browser fetches the content through the GitHub API and renders it locally.</p>
+            
+            <h3>URL Structure</h3>
+            <p>Sites use the <code>.dos</code> top-level domain. Examples:</p>
+            <ul>
+                <li><code>wiki.dos</code> - Main site</li>
+                <li><code>wiki.dos/index.html</code> - Specific page</li>
+                <li><code>wiki.dos/guides/tutorial.html</code> - Nested page</li>
+            </ul>
+            
+            <h3>Content Delivery</h3>
+            <p>The content delivery process:</p>
+            <ol>
+                <li>User enters .dos URL in browser</li>
+                <li>Browser validates URL format</li>
+                <li>System queries GitHub for site content</li>
+                <li>HTML is loaded into sandboxed webview</li>
+                <li>Page renders with restricted permissions</li>
+            </ol>
+            
+            <h2>Site Capabilities</h2>
+            
+            <h3>Allowed Features</h3>
+            <ul>
+                <li>Standard HTML5 markup</li>
+                <li>CSS styling and animations</li>
+                <li>JavaScript for interactivity</li>
+                <li>Local navigation between pages</li>
+                <li>Form inputs and validation</li>
+            </ul>
+            
+            <h3>Restricted Features</h3>
+            <ul>
+                <li>External network requests</li>
+                <li>Access to dOS0 file system</li>
+                <li>Persistent storage (cookies, localStorage)</li>
+                <li>Geolocation and device APIs</li>
+                <li>WebRTC and media streaming</li>
+            </ul>
+            
+            <div class="info-box">
+                <strong>Design Philosophy:</strong> .dos sites prioritize simplicity, speed, and user privacy over complex web application features.
+            </div>
+            
+            <h2>Benefits</h2>
+            
+            <h3>For Users</h3>
+            <ul>
+                <li>Instant page loads with no network delays</li>
+                <li>Complete privacy with no tracking</li>
+                <li>Consistent, distraction-free experience</li>
+                <li>Works offline by design</li>
+            </ul>
+            
+            <h3>For Developers</h3>
+            <ul>
+                <li>Simple static HTML development</li>
+                <li>No server infrastructure required</li>
+                <li>Version control through GitHub</li>
+                <li>Easy deployment and updates</li>
+            </ul>
+            
+            <h2>Current Sites</h2>
+            <p>The dOS0 Web ecosystem currently includes:</p>
+            <ul>
+                <li><strong>wiki.dos</strong> - System documentation and user guides</li>
+            </ul>
+            
+            <p>More sites are planned, including search, social, news, and productivity tools.</p>
+            
+            <h2>Future Development</h2>
+            <p>Planned enhancements to the .dos ecosystem:</p>
+            <ul>
+                <li>User-generated content sites</li>
+                <li>Inter-site communication protocols</li>
+                <li>Limited persistent storage for sites</li>
+                <li>Site discovery and directory service</li>
+                <li>Developer tools and debugging</li>
+            </ul>
+            
+            <footer>
+                <strong>dOS0 Wiki</strong> • Part of dOS0 Web
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

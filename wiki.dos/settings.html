@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - dOS0 Wiki</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">dOS0 Wiki</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Getting Started</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="overview.html">System Overview</a></li>
+                <li><a href="filesystem.html">File System</a></li>
+            </ul>
+            
+            <h3>Applications</h3>
+            <ul>
+                <li><a href="file-explorer.html">File Explorer</a></li>
+                <li><a href="notepad.html">Notepad</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="browser.html">Browser</a></li>
+                <li><a href="settings.html" class="active">Settings</a></li>
+            </ul>
+            
+            <h3>dOS0 Web</h3>
+            <ul>
+                <li><a href="dos-web.html">About .dos Sites</a></li>
+                <li><a href="creating-sites.html">Creating Sites</a></li>
+            </ul>
+            
+            <h3>Advanced</h3>
+            <ul>
+                <li><a href="github-sync.html">GitHub Sync</a></li>
+                <li><a href="api.html">API Reference</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content">
+            <h1>Settings</h1>
+            <p>The Settings application provides configuration options for customizing your dOS0 experience and managing system features.</p>
+            
+            <h2>Appearance</h2>
+            
+            <h3>Theme Selection</h3>
+            <p>Choose from predefined color themes that affect the desktop, windows, and taskbar appearance. Themes include:</p>
+            <ul>
+                <li><strong>Light</strong> - Bright background with dark text</li>
+                <li><strong>Dark</strong> - Dark background with light text</li>
+                <li><strong>Blue</strong> - Classic blue desktop theme</li>
+                <li><strong>Custom</strong> - Define your own color scheme</li>
+            </ul>
+            
+            <h3>Background</h3>
+            <p>Customize your desktop background with:</p>
+            <ul>
+                <li>Solid colors using the color picker</li>
+                <li>Gradient backgrounds with multiple color stops</li>
+                <li>Image uploads from your local computer</li>
+                <li>Preset wallpapers from the gallery</li>
+            </ul>
+            
+            <h3>Color Picker</h3>
+            <p>The advanced color picker provides:</p>
+            <ul>
+                <li>HSV color space selection with visual canvas</li>
+                <li>Hue slider for base color selection</li>
+                <li>Hex code input for precise colors</li>
+                <li>Color presets for quick access</li>
+                <li>Real-time preview of selected color</li>
+            </ul>
+            
+            <h2>Account</h2>
+            
+            <h3>GitHub Integration</h3>
+            <p>Configure cloud storage synchronization:</p>
+            <ul>
+                <li><strong>Username</strong> - Your GitHub account username</li>
+                <li><strong>Token</strong> - Personal access token with repo permissions</li>
+                <li><strong>Repository</strong> - Name of repository for file storage</li>
+            </ul>
+            
+            <p>See the <a href="github-sync.html" style="color: #ff8c00;">GitHub Sync</a> guide for detailed setup instructions.</p>
+            
+            <h3>Profile</h3>
+            <p>Manage your dOS0 profile information:</p>
+            <ul>
+                <li>Display name shown in system</li>
+                <li>Avatar or profile picture</li>
+                <li>User preferences and defaults</li>
+            </ul>
+            
+            <h2>System</h2>
+            
+            <h3>Desktop Behavior</h3>
+            <p>Configure how the desktop operates:</p>
+            <ul>
+                <li><strong>Auto-arrange icons</strong> - Automatically organize desktop items</li>
+                <li><strong>Snap windows</strong> - Enable window edge snapping</li>
+                <li><strong>Taskbar position</strong> - Bottom, top, left, or right</li>
+                <li><strong>Show system tray</strong> - Display or hide system tray icons</li>
+            </ul>
+            
+            <h3>Performance</h3>
+            <p>Optimize system performance:</p>
+            <ul>
+                <li><strong>Animations</strong> - Enable or disable window animations</li>
+                <li><strong>Transparency</strong> - Window transparency effects</li>
+                <li><strong>Shadow effects</strong> - Drop shadows on windows</li>
+            </ul>
+            
+            <h3>Storage</h3>
+            <p>Manage local storage usage:</p>
+            <ul>
+                <li>View total storage used by dOS0</li>
+                <li>Clear application cache</li>
+                <li>Reset to factory defaults</li>
+                <li>Export/import settings</li>
+            </ul>
+            
+            <div class="info-box">
+                <strong>Warning:</strong> Clearing cache or resetting to defaults will remove all local data. Ensure files are synced to GitHub before performing these operations.
+            </div>
+            
+            <h2>Applications</h2>
+            
+            <h3>Default Programs</h3>
+            <p>Set which applications open specific file types:</p>
+            <ul>
+                <li>Text files (.txt, .md) → Notepad</li>
+                <li>Images (.jpg, .png) → Image Viewer</li>
+                <li>Documents (.pdf) → Document Reader</li>
+            </ul>
+            
+            <h3>Startup Programs</h3>
+            <p>Configure which applications launch automatically when dOS0 starts:</p>
+            <ul>
+                <li>Add applications to startup list</li>
+                <li>Remove applications from startup</li>
+                <li>Set startup delay for each application</li>
+            </ul>
+            
+            <h2>Privacy</h2>
+            
+            <h3>Data Collection</h3>
+            <p>Control what data dOS0 collects:</p>
+            <ul>
+                <li><strong>Usage statistics</strong> - Anonymous usage data</li>
+                <li><strong>Error reports</strong> - Crash and error information</li>
+                <li><strong>Diagnostics</strong> - Performance metrics</li>
+            </ul>
+            
+            <h3>Permissions</h3>
+            <p>Manage application permissions:</p>
+            <ul>
+                <li>File system access</li>
+                <li>Network requests</li>
+                <li>Clipboard access</li>
+                <li>Notification permissions</li>
+            </ul>
+            
+            <h2>Keyboard Shortcuts</h2>
+            <p>Settings can be accessed quickly using:</p>
+            <ul>
+                <li><strong>Ctrl + ,</strong> - Open Settings</li>
+                <li><strong>Ctrl + S</strong> - Save current settings</li>
+                <li><strong>Esc</strong> - Close Settings without saving</li>
+            </ul>
+            
+            <footer>
+                <strong>dOS0 Wiki</strong> • Part of dOS0 Web
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

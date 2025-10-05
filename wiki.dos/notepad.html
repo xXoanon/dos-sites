@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad - dOS0 Wiki</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">dOS0 Wiki</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Getting Started</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="overview.html">System Overview</a></li>
+                <li><a href="filesystem.html">File System</a></li>
+            </ul>
+            
+            <h3>Applications</h3>
+            <ul>
+                <li><a href="file-explorer.html">File Explorer</a></li>
+                <li><a href="notepad.html" class="active">Notepad</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="browser.html">Browser</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+            
+            <h3>dOS0 Web</h3>
+            <ul>
+                <li><a href="dos-web.html">About .dos Sites</a></li>
+                <li><a href="creating-sites.html">Creating Sites</a></li>
+            </ul>
+            
+            <h3>Advanced</h3>
+            <ul>
+                <li><a href="github-sync.html">GitHub Sync</a></li>
+                <li><a href="api.html">API Reference</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content">
+            <h1>Notepad</h1>
+            <p>Notepad is a lightweight text editor for creating and editing plain text files. It supports syntax highlighting for various programming languages and provides essential editing features.</p>
+            
+            <h2>Opening Files</h2>
+            <p>Launch Notepad by:</p>
+            <ul>
+                <li>Double-clicking text files in File Explorer</li>
+                <li>Clicking the Notepad icon in the taskbar</li>
+                <li>Using File → Open from the menu</li>
+            </ul>
+            
+            <h2>Editor Features</h2>
+            
+            <h3>Text Editing</h3>
+            <p>Standard text editing capabilities include:</p>
+            <ul>
+                <li>Type and edit text freely</li>
+                <li>Multi-line editing support</li>
+                <li>Automatic line wrapping</li>
+                <li>Tab indentation</li>
+                <li>Line numbers display</li>
+            </ul>
+            
+            <h3>Syntax Highlighting</h3>
+            <p>Automatic syntax highlighting for common file types:</p>
+            <ul>
+                <li><strong>JavaScript</strong> - .js files</li>
+                <li><strong>HTML</strong> - .html files</li>
+                <li><strong>CSS</strong> - .css files</li>
+                <li><strong>Markdown</strong> - .md files</li>
+                <li><strong>JSON</strong> - .json files</li>
+                <li><strong>Python</strong> - .py files</li>
+            </ul>
+            
+            <h3>Auto-Save</h3>
+            <p>Changes are automatically saved as you type:</p>
+            <ul>
+                <li>Saves occur every few seconds</li>
+                <li>No manual save required</li>
+                <li>Changes sync to GitHub automatically</li>
+                <li>Status indicator shows save state</li>
+            </ul>
+            
+            <h2>Menu Options</h2>
+            
+            <h3>File Menu</h3>
+            <ul>
+                <li><strong>New</strong> - Create a new blank file</li>
+                <li><strong>Open</strong> - Open existing file from file system</li>
+                <li><strong>Save</strong> - Manually trigger save</li>
+                <li><strong>Save As</strong> - Save with a new filename</li>
+                <li><strong>Close</strong> - Close current file</li>
+            </ul>
+            
+            <h3>Edit Menu</h3>
+            <ul>
+                <li><strong>Undo</strong> - Reverse last change</li>
+                <li><strong>Redo</strong> - Reapply undone change</li>
+                <li><strong>Cut</strong> - Remove and copy selection</li>
+                <li><strong>Copy</strong> - Copy selection to clipboard</li>
+                <li><strong>Paste</strong> - Insert clipboard content</li>
+                <li><strong>Select All</strong> - Select entire document</li>
+            </ul>
+            
+            <h3>View Menu</h3>
+            <ul>
+                <li><strong>Word Wrap</strong> - Toggle line wrapping</li>
+                <li><strong>Line Numbers</strong> - Show/hide line numbers</li>
+                <li><strong>Font Size</strong> - Adjust text size</li>
+                <li><strong>Theme</strong> - Switch between light/dark themes</li>
+            </ul>
+            
+            <h2>Keyboard Shortcuts</h2>
+            
+            <h3>File Operations</h3>
+            <ul>
+                <li><strong>Ctrl + N</strong> - New file</li>
+                <li><strong>Ctrl + O</strong> - Open file</li>
+                <li><strong>Ctrl + S</strong> - Save file</li>
+                <li><strong>Ctrl + Shift + S</strong> - Save as</li>
+                <li><strong>Ctrl + W</strong> - Close file</li>
+            </ul>
+            
+            <h3>Editing</h3>
+            <ul>
+                <li><strong>Ctrl + Z</strong> - Undo</li>
+                <li><strong>Ctrl + Y</strong> - Redo</li>
+                <li><strong>Ctrl + X</strong> - Cut</li>
+                <li><strong>Ctrl + C</strong> - Copy</li>
+                <li><strong>Ctrl + V</strong> - Paste</li>
+                <li><strong>Ctrl + A</strong> - Select all</li>
+            </ul>
+            
+            <h3>Search</h3>
+            <ul>
+                <li><strong>Ctrl + F</strong> - Find text</li>
+                <li><strong>Ctrl + H</strong> - Find and replace</li>
+                <li><strong>F3</strong> - Find next</li>
+                <li><strong>Shift + F3</strong> - Find previous</li>
+            </ul>
+            
+            <h2>Find and Replace</h2>
+            <p>Search for text within your document:</p>
+            <ol>
+                <li>Press <code>Ctrl + F</code> to open find dialog</li>
+                <li>Enter search term</li>
+                <li>Use Next/Previous buttons to navigate results</li>
+                <li>Enable "Match Case" for case-sensitive search</li>
+            </ol>
+            
+            <p>Replace text throughout document:</p>
+            <ol>
+                <li>Press <code>Ctrl + H</code> to open replace dialog</li>
+                <li>Enter search term and replacement text</li>
+                <li>Click "Replace" for single replacement</li>
+                <li>Click "Replace All" to replace all occurrences</li>
+            </ol>
+            
+            <h2>Working with Multiple Files</h2>
+            <p>Notepad supports multiple open files:</p>
+            <ul>
+                <li>Each file opens in a separate tab</li>
+                <li>Click tabs to switch between files</li>
+                <li>Close button on each tab</li>
+                <li>Drag tabs to reorder</li>
+            </ul>
+            
+            <div class="info-box">
+                <strong>Tip:</strong> Use <code>Ctrl + Tab</code> to quickly switch between open files.
+            </div>
+            
+            <h2>File Encoding</h2>
+            <p>Notepad uses UTF-8 encoding by default, supporting:</p>
+            <ul>
+                <li>All Unicode characters</li>
+                <li>International text</li>
+                <li>Special symbols and emoji</li>
+                <li>Programming language characters</li>
+            </ul>
+            
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Use meaningful filenames with proper extensions</li>
+                <li>Enable syntax highlighting for code files</li>
+                <li>Keep files organized in appropriate folders</li>
+                <li>Use line numbers when debugging code</li>
+                <li>Regularly check auto-save status</li>
+            </ul>
+            
+            <footer>
+                <strong>dOS0 Wiki</strong> • Part of dOS0 Web
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
