@@ -3,9 +3,20 @@
 // Notify parent window of current URL for address bar
 function notifyParentOfUrl() {
     const currentPath = window.location.pathname;
-    const dosPath = currentPath.split('/wiki.dos/')[1] || 'index.html';
-    const friendlyUrl = 'wiki.dos/' + dosPath.replace('/index.html', '').replace('.html', '');
+    console.log('📍 Current path:', currentPath);
     
+    // Extract the page name from the path (handles both /wiki.dos/page.html and /dos-sites/wiki.dos/page.html)
+    let pageName = 'index.html';
+    if (currentPath.includes('/wiki.dos/')) {
+        pageName = currentPath.split('/wiki.dos/')[1] || 'index.html';
+    } else if (currentPath.endsWith('.html')) {
+        pageName = currentPath.split('/').pop();
+    }
+    
+    // Build friendly URL
+    const friendlyUrl = pageName === 'index.html' ? 'wiki.dos' : 'wiki.dos/' + pageName.replace('.html', '');
+    
+    console.log('📨 Sending urlUpdate:', friendlyUrl);
     window.parent.postMessage({
         type: 'urlUpdate',
         url: friendlyUrl
@@ -16,7 +27,7 @@ function notifyParentOfUrl() {
 window.addEventListener('load', notifyParentOfUrl);
 
 // Handle link clicks for internal navigation
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     const link = e.target.closest('a');
     if (link && link.href) {
         const href = link.getAttribute('href');
